@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Valentine Gift for My Gudiya</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+font-family: Arial, sans-serif;
+text-align: center;
+height: 100vh;
+margin: 0;
+overflow: hidden;
+}
+
+.card {
+background: white;
+width: 90%;
+max-width: 400px;
+margin: auto;
+margin-top: 100px;
+padding: 30px;
+border-radius: 20px;
+box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+h1 {
+color: #d6336c;
+}
+
+button {
+font-size: 18px;
+padding: 12px 25px;
+border: none;
+border-radius: 20px;
+cursor: pointer;
+position: absolute;
+}
+
+#yes {
+background: #28a745;
+color: white;
+left: 30%;
+top: 350px;
+}
+
+#no {
+background: #dc3545;
+color: white;
+left: 55%;
+top: 350px;
+}
+
+#message {
+display: none;
+font-size: 18px;
+color: #b3003b;
+margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+<h1>💝 Valentine Gift for My Gudiya 💝</h1>
+<h2 id="question">Will you be my Valentine forever? 💖</h2>
+
+<div id="message">
+Then you have made the best decision of your life ❤️<br><br>
+I will keep you happy and hold your hand till my last breath 💕<br><br>
+I love you 💞
+</div>
+</div>
+
+<button id="yes">YES 💖</button>
+<button id="no">NO 💔</button>
+
+<script>
+const noBtn = document.getElementById("no");
+const yesBtn = document.getElementById("yes");
+const message = document.getElementById("message");
+const question = document.getElementById("question");
+
+noBtn.addEventListener("click", () => {
+noBtn.style.left = Math.random() * 70 + "%";
+noBtn.style.top = Math.random() * 70 + "%";
+});
+
+yesBtn.addEventListener("click", () => {
+question.style.display = "none";
+yesBtn.style.display = "none";
+noBtn.style.display = "none";
+message.style.display = "block";
+});
+</script>
+
+</body>
+</html>
