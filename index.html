@@ -22,6 +22,8 @@ margin-top: 100px;
 padding: 30px;
 border-radius: 20px;
 box-shadow: 0 0 20px rgba(0,0,0,0.2);
+position: relative;
+z-index: 2;
 }
 
 h1 {
@@ -35,12 +37,13 @@ border: none;
 border-radius: 20px;
 cursor: pointer;
 position: absolute;
+z-index: 2;
 }
 
 #yes {
 background: #28a745;
 color: white;
-left: 30%;
+left: 25%;
 top: 350px;
 }
 
@@ -57,19 +60,42 @@ font-size: 18px;
 color: #b3003b;
 margin-top: 20px;
 }
+
+.heart {
+position: fixed;
+top: -10px;
+font-size: 28px;
+animation: fall linear forwards;
+z-index: 1;
+}
+
+.teddy {
+position: fixed;
+top: -100px;
+font-size: 80px; /* BIG TEDDY */
+animation: fall linear forwards;
+z-index: 1;
+}
+
+@keyframes fall {
+to {
+transform: translateY(120vh);
+opacity: 0;
+}
+}
 </style>
 </head>
 
 <body>
 
 <div class="card">
-<h1>💝 Happy valentines Day Kittu 💝</h1>
+<h1>💝 My Love 💝</h1>
 <h2 id="question">Will you be my Valentine forever? 💖</h2>
 
 <div id="message">
 Then you have made the best decision of your life ❤️<br><br>
 I will keep you happy and hold your hand till my last breath 💕<br><br>
-I love you 💞
+I love you 😘😘😘😘😘😘
 </div>
 </div>
 
@@ -82,6 +108,29 @@ const yesBtn = document.getElementById("yes");
 const message = document.getElementById("message");
 const question = document.getElementById("question");
 
+// Heart rain
+function createHeart() {
+const heart = document.createElement("div");
+heart.className = "heart";
+heart.innerHTML = "❤️";
+heart.style.left = Math.random() * 100 + "vw";
+heart.style.animationDuration = (2 + Math.random() * 3) + "s";
+document.body.appendChild(heart);
+setTimeout(() => heart.remove(), 5000);
+}
+setInterval(createHeart, 400);
+
+// Big Teddy rain
+function createTeddy() {
+const teddy = document.createElement("div");
+teddy.className = "teddy";
+teddy.innerHTML = "🧸";
+teddy.style.left = Math.random() * 100 + "vw";
+teddy.style.animationDuration = (3 + Math.random() * 3) + "s";
+document.body.appendChild(teddy);
+setTimeout(() => teddy.remove(), 7000);
+}
+
 noBtn.addEventListener("click", () => {
 noBtn.style.left = Math.random() * 70 + "%";
 noBtn.style.top = Math.random() * 70 + "%";
@@ -92,6 +141,9 @@ question.style.display = "none";
 yesBtn.style.display = "none";
 noBtn.style.display = "none";
 message.style.display = "block";
+
+// Start teddy animation
+setInterval(createTeddy, 600);
 });
 </script>
 
